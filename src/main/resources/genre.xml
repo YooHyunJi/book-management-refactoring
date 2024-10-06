@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.bookmanagement.mapper.GenreMapper">
+
+    <resultMap id="GenreResultMap" type="com.bookmanagement.model.Genre">
+        <id property = "genre_id" column = "GENRE_ID"/>
+        <result property = "name" column = "NAME"/>
+    </resultMap>
+
+    <select id = "findAllGenre" resultMap = "GenreResultMap">
+        SELECT * FROM GENRE;
+    </select>
+
+    <select id = "findGenreByID" parameterType="int" resultMap="GenreResultMap">
+        SELECT * FROM GENRE WHERE genre_id = #{genre_id};
+    </select>
+
+</mapper>
